@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  node1:
+    build: .
+    container_name: node1
+    command: ["--config=internal/config/node1.json"]
+    ports:
+      - "8000:8000"
+    networks:
+      - kvnetwork
+
+  node2:
+    build: .
+    container_name: node2
+    command: ["--config=internal/config/node2.json"]
+    ports:
+      - "8001:8001"
+    networks:
+      - kvnetwork
+
+  node3:
+    build: .
+    container_name: node3
+    command: ["--config=internal/config/node3.json"]
+    ports:
+      - "8002:8002"
+    networks:
+      - kvnetwork
+
+networks:
+  kvnetwork:
